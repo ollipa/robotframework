@@ -69,6 +69,7 @@ class Token(object):
     TAGS = 'TAGS'
     ARGUMENTS = 'ARGUMENTS'
     RETURN = 'RETURN'
+    PARAMETRIZE = 'PARAMETRIZE'
 
     NAME = 'NAME'
     VARIABLE = 'VARIABLE'
@@ -119,7 +120,8 @@ class Token(object):
         TIMEOUT,
         TAGS,
         ARGUMENTS,
-        RETURN
+        RETURN,
+        PARAMETRIZE
     ))
     HEADER_TOKENS = frozenset((
         SETTING_HEADER,

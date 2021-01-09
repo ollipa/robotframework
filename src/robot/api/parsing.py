@@ -221,6 +221,7 @@ Statements:
 - :class:`~robot.parsing.model.statements.Timeout`
 - :class:`~robot.parsing.model.statements.Arguments`
 - :class:`~robot.parsing.model.statements.Return`
+- :class:`~robot.parsing.model.statements.Parametrize`
 - :class:`~robot.parsing.model.statements.KeywordCall`
 - :class:`~robot.parsing.model.statements.TemplateArguments`
 - :class:`~robot.parsing.model.statements.ForHeader`
@@ -524,6 +525,7 @@ from robot.parsing.model.statements import (
     Timeout,
     Arguments,
     Return,
+    Parametrize,
     KeywordCall,
     TemplateArguments,
     ForHeader,

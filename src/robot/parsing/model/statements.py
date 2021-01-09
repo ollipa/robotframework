@@ -385,6 +385,10 @@ class Arguments(MultiValue):
 class Return(MultiValue):
     type = Token.RETURN
 
+@Statement.register
+class Parametrize(MultiValue):
+    type = Token.PARAMETRIZE
+
 
 @Statement.register
 class KeywordCall(Statement):
