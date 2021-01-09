@@ -143,7 +143,8 @@ class TestCaseFileSettings(Settings):
         'Default Tags',
         'Library',
         'Resource',
-        'Variables'
+        'Variables',
+        'Parametrize'
     )
     aliases = {
         'Task Setup': 'Test Setup',

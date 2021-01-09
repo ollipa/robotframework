@@ -24,6 +24,7 @@ class TestDefaults(object):
         self._teardown = {}
         self._force_tags = ()
         self.default_tags = ()
+        self.parametrize = ()
         self.template = None
         self._timeout = None
 
@@ -82,6 +83,7 @@ class TestSettings(object):
         self._timeout = NOTSET
         self._template = NOTSET
         self._tags = NOTSET
+        self._parametrize = NOTSET
 
     @property
     def setup(self):
@@ -134,3 +136,13 @@ class TestSettings(object):
     @tags.setter
     def tags(self, tags):
         self._tags = tags
+
+    @property
+    def parametrize(self):
+        if self._parametrize is NOTSET:
+           return self.defaults.parametrize
+        return self._parametrize
+
+    @parametrize.setter
+    def parametrize(self, parametrize):
+        self._parametrize = parametrize

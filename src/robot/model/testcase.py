@@ -28,14 +28,15 @@ class TestCase(ModelObject):
     Extended by :class:`robot.running.model.TestCase` and
     :class:`robot.result.model.TestCase`.
     """
-    __slots__ = ['parent', 'name', 'doc', 'timeout']
+    __slots__ = ['parent', 'name', 'doc', 'timeout', 'parametrize']
     keyword_class = Keyword  #: Internal usage only
 
-    def __init__(self, name='', doc='', tags=None, timeout=None):
+    def __init__(self, name='', doc='', tags=None, timeout=None, parametrize=None):
         self.parent = None      #: Parent suite.
         self.name = name        #: Test case name.
         self.doc = doc          #: Test case documentation.
         self.timeout = timeout  #: Test case timeout.
+        self.parametrize = parametrize or ()
         self.tags = tags
         self.body = None
         self.setup = None

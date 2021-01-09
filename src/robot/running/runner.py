@@ -12,6 +12,7 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
+import copy
 
 from robot.errors import ExecutionStatus, DataError, PassExecution
 from robot.model import SuiteVisitor, TagPatterns
@@ -110,6 +111,15 @@ class Runner(SuiteVisitor):
         self._output.library_listeners.discard_suite_scope()
 
     def visit_test(self, test):
+        if not test.parametrize:
+            return self._execute_test(test)
+        for param in test.parametrize:
+            self._context.variables['${PARAM}'] = param
+            test_copy = copy.deepcopy(test)
+            test_copy.name = test.name + " [" + str(param) + "]"
+            self._execute_test(test_copy)
+
+    def _execute_test(self, test):
         if test.name in self._executed_tests:
             self._output.warn("Multiple test cases with name '%s' executed in "
                               "test suite '%s'." % (test.name, self._suite.longname))

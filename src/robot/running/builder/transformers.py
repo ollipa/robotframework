@@ -61,6 +61,9 @@ class SettingsBuilder(NodeVisitor):
     def visit_ForceTags(self, node):
         self.test_defaults.force_tags = node.values
 
+    def visit_Parametrize(self, node):
+        self.test_defaults.parametrize = node.values
+
     def visit_TestTemplate(self, node):
         self.test_defaults.template = node.value
 
@@ -157,6 +160,7 @@ class TestCaseBuilder(NodeVisitor):
         test.teardown.config(**settings.teardown)
         test.timeout = settings.timeout
         test.tags = settings.tags
+        test.parametrize = settings.parametrize
         if settings.template:
             test.template = settings.template
             self._set_template(test, settings.template)
