@@ -220,6 +220,9 @@ class TestCaseBuilder(NodeVisitor):
     def visit_Tags(self, node):
         self.settings.tags = node.values
 
+    def visit_Parametrize(self, node):
+        self.settings.parametrize = node.values
+
     def visit_Template(self, node):
         self.settings.template = node.value
 

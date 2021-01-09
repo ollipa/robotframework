@@ -186,7 +186,8 @@ class TestCaseSettings(Settings):
         'Setup',
         'Teardown',
         'Template',
-        'Timeout'
+        'Timeout',
+        'Parametrize'
     )
 
     def __init__(self, parent):
